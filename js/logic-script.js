@@ -38,3 +38,7 @@ var questions = [
 
 ];
 
+//start quiz function 
+function beginQuiz() {
+
+}
