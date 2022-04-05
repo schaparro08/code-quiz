@@ -1,15 +1,18 @@
 // Var to keep track of time
 // index at 0
-var questionsIndex = 0
+var questionsIndex = 0;
 // keep timer score for quiz
-var time = questions.length * 5
+var time = questions.length * 15;
+
+var timerId;
 
 // Traverse DOM
 var questionsEl = document.getElementById("questions");
 var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("submit");
 var startBtn = document.getElementById("start");
-var initialsEl = document.getElementById("initials")
+var initialsEl = document.getElementById("initials");
+var finalPage = document.getElementById("final-page");
 
 //Quiz questions
 var questions = [
@@ -31,7 +34,7 @@ var questions = [
 
     },
     {
-        title: "What is another name for the manatee?"
+        title: "What is another name for the manatee?",
         choices: ["Sea Lion", "Sea Elephant", "Sea Cow"],
         answer: "Sea Cow"
     },
@@ -40,5 +43,49 @@ var questions = [
 
 //start quiz function 
 function beginQuiz() {
+var beginEl = document.getElementById("beginning");
+beginEl.setAttribute("class", "hide");
+//unhide questions
+questionsEl.removeAttribute("class");
+
+//start timer
+timerId = setInterval(clockTick, 1000);
+timerEl.textContent = time;
+
+grabQuestions();
 
 }
+
+function grabQuestions() {
+
+}
+
+function clockTick() {
+    time--;
+    timerEl.textContent = time;
+
+    if (time <= 0) {
+        // call back function to end quiz
+        
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+startBtn.addEventListener("click", beginQuiz);
