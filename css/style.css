@@ -1,0 +1,13 @@
+* {background-color: #E3D9CA ;
+    color: #95A792;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* text-align: center; */
+    margin-top: 50px;
+    font-weight: bolder
+};
+
+.btn {
+    margin-left: 400px;
+    padding: 20px;
+};
+
