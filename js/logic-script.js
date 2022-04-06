@@ -135,13 +135,19 @@ function endgame() {
 
 function initials () {
 // get initials and save them in local storage
-var input = document.getElementById("initials").value;
+var input = document.getElementById("initialsA").value;
 localStorage.setItem("initials", input);
-console.log(input);
+
+
+
+location.href = "highscore.html";
 }
+
 
 document.querySelector(".frontpage").addEventListener("click", getAnswer)
 
 startBtn.addEventListener("click", beginQuiz);
 
 // scoreEl.addEventListener("click", //have them go to score page);
+
+scoreEl.addEventListener("click", initials);
