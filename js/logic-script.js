@@ -57,6 +57,18 @@ timerEl.textContent = time;
 grabQuestions();
 
 }
+
+function clockTick() {
+    time--;
+    timerEl.textContent = time;
+
+    if (time <= 0) {
+        // call back function to end quiz
+        endgame();
+    }
+
+}
+
 // Function to show the question on page
 function grabQuestions() {
     if (questionsIndex < questions.length) {
@@ -80,6 +92,20 @@ console.log(currentQuestion);
 else {
     endgame();
 }
+
+function correctAnswers() {
+
+    // In here we need to add some logic for storing correct ansers and subtracting time for wrong ones
+
+    if ()
+    // we started a function for subtracting time called function lostTime
+}
+
+
+
+
+
+
 }
 // Function will get answer off the button and compare it w the correct answer
 function getAnswer(event) {
@@ -94,24 +120,19 @@ function getAnswer(event) {
 
 function endgame() {
     // stop the timer
-    // get the text form the timer and make it the score
+    clearInterval(timerId);
+    //clear previous question 
+    questionsEl.textContent = "";
+    // adds text from final page
+    finalPage.removeAttribute("class");
     //show button that allows them to go to the final score page
-    
+    document.getElementById("fin-score").textContent = time;
 }
 
+function lostTime() {
 
-function clockTick() {
-    time--;
-    timerEl.textContent = time;
-
-    if (time <= 0) {
-        // call back function to end quiz
-
-    }
-
-}
-
-
+    // fucntion to decrease time if questions are answered wrong
+} 
 
 
 
