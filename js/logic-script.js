@@ -9,10 +9,14 @@ var timerId;
 // Traverse DOM
 var questionsEl = document.getElementById("questions");
 var timerEl = document.getElementById("time");
-var choicesEl = document.getElementById("submit");
+var scoreEl = document.getElementById("submit");
 var startBtn = document.getElementById("startbtn");
 var initialsEl = document.getElementById("initials");
 var finalPage = document.getElementById("final-page");
+var scorePg = document.querySelector(".scores")
+
+
+
 
 //Quiz questions
 var questions = [
@@ -87,26 +91,15 @@ console.log(currentQuestion);
      button.textContent = currentQuestion.choices[index];
      button.classList.add("answer");
      document.querySelector("#choices").appendChild(button);
+     
+
  }
 }
 else {
     endgame();
 }
-
-function correctAnswers() {
-
-    // In here we need to add some logic for storing correct ansers and subtracting time for wrong ones
-
-    if ()
-    // we started a function for subtracting time called function lostTime
 }
 
-
-
-
-
-
-}
 // Function will get answer off the button and compare it w the correct answer
 function getAnswer(event) {
     if(event.target.matches(".answer")) {
@@ -114,9 +107,18 @@ function getAnswer(event) {
         console.log(event.target.textContent);
         questionsIndex++;
         grabQuestions();
+    } else {
+        time -= 5;
+        console.log("incorrect");
+        // In here we need to add some logic for storing correct ansers and subtracting time for wrong ones
+        // we started a function for subtracting time called function lostTime
+        
     }
     
 }
+
+
+
 
 function endgame() {
     // stop the timer
@@ -127,17 +129,19 @@ function endgame() {
     finalPage.removeAttribute("class");
     //show button that allows them to go to the final score page
     document.getElementById("fin-score").textContent = time;
+    // adds score to local storage
+    localStorage.setItem("score", time);
 }
 
-function lostTime() {
-
-    // fucntion to decrease time if questions are answered wrong
-} 
-
-
-
-
-
+function initials () {
+// get initials and save them in local storage
+var input = document.getElementById("initials").value;
+localStorage.setItem("initials", input);
+console.log(input);
+}
 
 document.querySelector(".frontpage").addEventListener("click", getAnswer)
+
 startBtn.addEventListener("click", beginQuiz);
+
+// scoreEl.addEventListener("click", //have them go to score page);
