@@ -1,8 +1,9 @@
-var content = document.getElementsByClassName("lists");
+var content = document.getElementById("lists");
 
 function displayScore() {
    var inputs = localStorage.getItem("input");
-   content.textContent = inputs.value;
-
+   console.log(inputs);
+   content.appendChild(inputs);
+   
 
 }
