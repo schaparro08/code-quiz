@@ -136,10 +136,7 @@ function endgame() {
 function initials () {
 // get initials and save them in local storage
 var input = document.getElementById("initialsA").value;
-localStorage.setItem("initials", input);
-
-
-
+localStorage.setItem("initials", JSON.stringify(input));
 location.href = "highscore.html";
 }
 
